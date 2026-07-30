@@ -24,9 +24,8 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt
 
-# Crear directorio de datos para persistencia (volumen Railway)
+# Crear directorio de datos para persistencia
 RUN mkdir -p /data
-VOLUME ["/data"]
 
 # Copiar código del bot
 COPY bot.py config.py api_client.py telegram_client.py formatter.py state.py ./
